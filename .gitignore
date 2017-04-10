@@ -1,10 +1,13 @@
+.env
+/.idea
+/.vagrant
 /node_modules
+/public/fonts
 /public/hot
+/public/mix-manifest.json
 /public/storage
 /storage/*.key
 /vendor
-/.idea
-/.vagrant
+composer.lock
 Homestead.json
 Homestead.yaml
-.env
