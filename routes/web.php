@@ -12,13 +12,16 @@
 */
 
 Route::get('/', 'TeaController@index')
-    ->name('tea.index');
+        ->name('tea.index');
 
-Route::get('create', 'TeaController@create')
-    ->name('tea.create');
+Route::group(['prefix' => 'tea'], function(){
 
-Route::post('/', 'TeaController@store')
-    ->name('tea.store');
+    Route::get('create', 'TeaController@create')
+        ->name('tea.create');
 
-Route::get('{tea}', 'TeaController@show')
-    ->name('tea.show');
+    Route::post('/', 'TeaController@store')
+        ->name('tea.store');
+
+    Route::get('{tea}', 'TeaController@show')
+        ->name('tea.show');
+});
