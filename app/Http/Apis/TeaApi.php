@@ -4,7 +4,7 @@ namespace App\Http\Apis;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeaStore;
-use App\Tea;
+use App\Models\Tea;
 
 class TeaApi extends Controller
 {

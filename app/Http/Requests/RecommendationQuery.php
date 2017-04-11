@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Tea;
+use App\Models\Tea;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RecommendationQuery extends FormRequest

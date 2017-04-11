@@ -1,13 +1,22 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Observers\TeaObserver;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+use InvalidArgumentException;
+use OutOfBoundException;
 
 class Tea extends Model
 {
     protected $table = 'teas';
+
+    protected $appends = [
+        'is_ready',
+        'time_left_brewing',
+        'display_type',
+    ];
 
     protected $dates = [
         'drinkable_at',
@@ -26,6 +35,13 @@ class Tea extends Model
         'green',
         'herbal',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::observe(TeaObserver::class);
+    }
 
     public function setTypeAttribute($value)
     {
@@ -78,5 +94,10 @@ class Tea extends Model
     public function getIsReadyAttribute()
     {
         return $this->drinkable_at < Carbon::now();
+    }
+
+    public function getDisplayTypeAttribute()
+    {
+        return ucfirst($this->type);
     }
 }

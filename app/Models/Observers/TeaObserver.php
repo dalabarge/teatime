@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models\Observers;
 
-use App\Tea;
 use App\BrewTimer;
+use App\Models\Tea;
 
 class TeaObserver
 {

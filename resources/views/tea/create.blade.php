@@ -24,28 +24,28 @@
                 </div>
             @endif
 
-            @foreach($recommendation as $key => $value)
+            @foreach($recommendation->toArray() as $key => $value)
                 <input type="hidden" name="{{$key}}" value="{{$value}}" />
             @endforeach
 
-            <h2>{{ array_get($recommendation, 'name', 'Hot Tea') }}</h2>
+            <h2>{{ $recommendation->name or 'Hot Tea' }}</h2>
             <div class="row">
                 <div class="col">
                     <dl class="lead">
                         <dt>Type</dt>
-                        <dd>{{ array_get($recommendation, 'type', 'black') }}</dd>
+                        <dd>{{ $recommendation->display_type or 'Black' }}</dd>
                     </dl>
                 </div>
                 <div class="col">
                     <dl class="lead">
                         <dt>Caffeine</dt>
-                        <dd>{{ array_get($recommendation, 'caffeine', 30) }} mg</dd>
+                        <dd>{{ $recommendation->caffeine or '30' }} mg</dd>
                     </dl>
                 </div>
                 <div class="col">
                     <dl class="lead">
                         <dt>Brew Time</dt>
-                        <dd>{{ array_get($recommendation, 'time', 0) }} seconds</dd>
+                        <dd>{{ $recommendation->time_to_brew or '00:00' }} minutes</dd>
                     </dl>
                 </div>
             </div>
