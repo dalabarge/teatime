@@ -29,30 +29,30 @@ class Recommendations extends Collection
 
     public function optimalChoice($options)
     {
-        if( array_has($options, 'type') ) {
+        if (array_has($options, 'type')) {
             $teas = $this->type(array_get($options, 'type'));
-            if( $teas->count() === 1 ){
+            if ($teas->count() === 1) {
                 return $teas->first();
-            } elseif ( $teas->count() > 0) {
-                $this->items = $teas;
-            }
-        }
-        
-        if( array_has($options, 'caffeine') ) {
-            $teas = $this->maxCaffeine(array_get($options, 'caffeine'));
-            if( $teas->count() === 1 ){
-                return $teas->first();
-            } elseif ( $teas->count() > 0) {
+            } elseif ($teas->count() > 0) {
                 $this->items = $teas;
             }
         }
 
-        if( array_has($options, 'rush') ) {
+        if (array_has($options, 'caffeine')) {
+            $teas = $this->maxCaffeine(array_get($options, 'caffeine'));
+            if ($teas->count() === 1) {
+                return $teas->first();
+            } elseif ($teas->count() > 0) {
+                $this->items = $teas;
+            }
+        }
+
+        if (array_has($options, 'rush')) {
             $average = $this->average('time');
             $teas = $this->optimalBrewTime($average + array_get($options, 'rush'));
-            if( $teas->count() === 1 ){
+            if ($teas->count() === 1) {
                 return $teas->first();
-            } elseif ( $teas->count() > 0) {
+            } elseif ($teas->count() > 0) {
                 $this->items = $teas;
             }
         }

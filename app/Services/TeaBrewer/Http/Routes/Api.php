@@ -16,12 +16,11 @@ class Api
             'namespace' => $this->namespace,
             'prefix' => 'api/tea',
             'middleware' => 'api',
-        ], function($router) {
-
+        ], function ($router) {
             $router->get('{id}')
                 ->uses('TeaApi@show')
                 ->name('api.tea.show');
-            
+
             $router->post('/')
                 ->uses('TeaApi@store')
                 ->name('api.tea.store');

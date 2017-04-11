@@ -35,11 +35,11 @@ class TeaController extends Controller
 
         return redirect()->route('tea.show', $tea->id);
     }
-    
+
     public function show($id)
     {
         $tea = $this->api->show($id);
-        
+
         return view('tea.show', compact('tea'));
     }
 }

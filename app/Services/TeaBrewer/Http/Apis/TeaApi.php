@@ -32,7 +32,7 @@ class TeaApi extends Controller
     {
         return $this->repository->create($request->all());
     }
-    
+
     public function show($id)
     {
         return $this->repository->read($id);

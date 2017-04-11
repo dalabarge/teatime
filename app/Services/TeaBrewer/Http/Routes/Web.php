@@ -15,13 +15,12 @@ class Web
         $this->router->group([
             'namespace' => $this->namespace,
             'middleware' => 'web',
-        ], function($router) {
+        ], function ($router) {
             $router->get('/')
                 ->uses('TeaController@index')
                 ->name('tea.index');
 
-            $router->group(['prefix' => 'tea'], function($router) {
-
+            $router->group(['prefix' => 'tea'], function ($router) {
                 $router->get('create')
                     ->uses('TeaController@create')
                     ->name('tea.create');

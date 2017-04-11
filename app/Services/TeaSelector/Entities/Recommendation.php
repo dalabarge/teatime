@@ -13,11 +13,11 @@ class Recommendation extends Model
 
     public function __construct($attributes = [])
     {
-    	if( $attributes instanceof self ) {
-    		$attributes = $attributes->toArray();
-    	}
-    	
-    	parent::__construct($attributes);
+        if ($attributes instanceof self) {
+            $attributes = $attributes->toArray();
+        }
+
+        parent::__construct($attributes);
     }
 
     public function getTimeToBrewAttribute()

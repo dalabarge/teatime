@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     [
         'name' => 'Earl Grey',
         'caffeine' => 47,

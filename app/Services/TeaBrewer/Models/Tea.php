@@ -2,7 +2,6 @@
 
 namespace App\Services\TeaBrewer\Models;
 
-use App\Services\TeaBrewer\Models\TeaObserver;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
@@ -45,8 +44,8 @@ class Tea extends Model
 
     public function setTypeAttribute($value)
     {
-        if( ! in_array($value, self::TYPES) ) {
-            throw new InvalidArgumentException('Type ' . $value. ' is not a valid tea type.');
+        if ( ! in_array($value, self::TYPES)) {
+            throw new InvalidArgumentException('Type '.$value.' is not a valid tea type.');
         }
 
         array_set($this->attributes, 'type', $value);
@@ -54,11 +53,11 @@ class Tea extends Model
 
     public function setTemperatureAttribute($value)
     {
-        if( $value < 0 ) {
-            throw new OutOfBoundException('Temperature ' . $temperature .' is too cold. Temperature must not be colder than 0 degrees.');
+        if ($value < 0) {
+            throw new OutOfBoundException('Temperature '.$temperature.' is too cold. Temperature must not be colder than 0 degrees.');
         }
-        if( $value > 212 ) {
-           throw new OutOfBoundException('Temperature ' . $temperature .' is too hot. Temperature must not be hotter than 212 degrees.');
+        if ($value > 212) {
+            throw new OutOfBoundException('Temperature '.$temperature.' is too hot. Temperature must not be hotter than 212 degrees.');
         }
 
         array_set($this->attributes, 'temperature', $value);
@@ -66,7 +65,7 @@ class Tea extends Model
 
     public function setTimeAttribute($value)
     {
-        if( $value < 0 ) {
+        if ($value < 0) {
             throw new OutOfBoundException('Time should be greater than 0 seconds.');
         }
 
@@ -75,7 +74,7 @@ class Tea extends Model
 
     public function setCaffeineAttribute($value)
     {
-        if( $value < 0 ) {
+        if ($value < 0) {
             throw new OutOfBoundException('Caffeine content must be a positive number.');
         }
 
@@ -104,8 +103,8 @@ class Tea extends Model
     public function scopeKeyword($query, $keyword)
     {
         $keyword = preg_replace('/[\s]+/', '%', $keyword);
-        $query->where(function($query) use ($keyword) {
-            foreach(['name'] as $attribute) {
+        $query->where(function ($query) use ($keyword) {
+            foreach (['name'] as $attribute) {
                 $query->orWhere($attribute, 'LIKE', '%'.$keyword.'%');
             }
         });

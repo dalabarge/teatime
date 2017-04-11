@@ -3,8 +3,8 @@
 namespace App\Services\TeaSelector\Http\Apis;
 
 use App\Http\Controllers\Controller;
-use App\Services\TeaSelector\Http\Requests\RecommendationQuery;
 use App\Services\TeaSelector\Entities\Recommendations;
+use App\Services\TeaSelector\Http\Requests\RecommendationQuery;
 
 class RecommendationApi extends Controller
 {

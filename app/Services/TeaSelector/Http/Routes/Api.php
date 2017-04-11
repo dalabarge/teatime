@@ -16,8 +16,7 @@ class Api
             'namespace' => $this->namespace,
             'prefix' => 'api/recommendation',
             'middleware' => 'api',
-        ], function($router) {
-
+        ], function ($router) {
             $router->get('query')
                 ->uses('RecommendationApi@query')
                 ->name('api.recommendation.query');

@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -27,20 +27,14 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
     /**
      * Define the routes for the application.
-     *
-     * @return void
      */
     public function map()
     {
@@ -55,8 +49,6 @@ class RouteServiceProvider extends ServiceProvider
      * Define the "web" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
      */
     protected function mapWebRoutes()
     {
@@ -69,8 +61,6 @@ class RouteServiceProvider extends ServiceProvider
      * Define the "api" routes for the application.
      *
      * These routes are typically stateless.
-     *
-     * @return void
      */
     protected function mapApiRoutes()
     {
@@ -84,8 +74,6 @@ class RouteServiceProvider extends ServiceProvider
      * Map over the "web" routes defined by the services.
      *
      * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
      */
     protected function mapWebServiceRoutes()
     {
@@ -96,8 +84,6 @@ class RouteServiceProvider extends ServiceProvider
      * Map over the "api" routes defined by the services.
      *
      * These routes are typically stateless.
-     *
-     * @return void
      */
     protected function mapApiServiceRoutes()
     {

@@ -6,16 +6,16 @@ use Illuminate\Support\Arr;
 
 trait CollectionCoercion
 {
-	public function __construct($items = [])
+    public function __construct($items = [])
     {
         $items = $this->getArrayableItems($items);
         $this->items = $this->coerceToArrayOfObjects($items);
     }
 
-	public static function make($items = [])
-	{
-		return new static(array_merge($items, config('teas', [])));
-	}
+    public static function make($items = [])
+    {
+        return new static(array_merge($items, config('teas', [])));
+    }
 
     public function prepend($value, $key = null)
     {
@@ -28,7 +28,7 @@ trait CollectionCoercion
 
     public function offsetSet($key, $value)
     {
-    	$recommendation = $this->coerceToObject($value);
+        $recommendation = $this->coerceToObject($value);
 
         if (is_null($key)) {
             $this->items[] = $recommendation;
@@ -44,10 +44,10 @@ trait CollectionCoercion
 
     protected function coerceToArrayOfObjects($items)
     {
-    	foreach($items as $key => $item) {
-    		$items[$key] = $this->coerceToObject($item);
-    	}
+        foreach ($items as $key => $item) {
+            $items[$key] = $this->coerceToObject($item);
+        }
 
-    	return $items;
+        return $items;
     }
 }
