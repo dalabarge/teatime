@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Services\TeaSelector\Http\Requests;
 
-use App\Models\Tea;
+use App\Services\TeaBrewer\Models\Tea;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RecommendationQuery extends FormRequest

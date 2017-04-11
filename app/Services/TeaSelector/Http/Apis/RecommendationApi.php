@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Apis;
+namespace App\Services\TeaSelector\Http\Apis;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RecommendationQuery;
-use App\Models\Collections\Recommendations;
+use App\Services\TeaSelector\Http\Requests\RecommendationQuery;
+use App\Services\TeaSelector\Entities\Recommendations;
 
 class RecommendationApi extends Controller
 {

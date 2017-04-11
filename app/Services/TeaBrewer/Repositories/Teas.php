@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Services\TeaBrewer\Repositories;
 
-use App\Models\Tea;
+use App\Services\TeaBrewer\Models\Tea;
 
 class Teas
 {	

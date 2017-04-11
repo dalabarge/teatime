@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Apis;
+namespace App\Services\TeaBrewer\Http\Apis;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TeaStore;
-use App\Repositories\Teas;
+use App\Services\TeaBrewer\Http\Requests\TeaStore;
+use App\Services\TeaBrewer\Repositories\Teas;
 use Illuminate\Http\Request;
 
 class TeaApi extends Controller

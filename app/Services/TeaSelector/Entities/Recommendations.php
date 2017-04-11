@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Models\Collections;
+namespace App\Services\TeaSelector\Entities;
 
-use App\Models\Recommendation;
 use App\Traits\CollectionCoercion;
 use Illuminate\Support\Collection;
 

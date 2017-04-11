@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Services\TeaSelector\Entities;
 
 use Jenssegers\Model\Model;
 

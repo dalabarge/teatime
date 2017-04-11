@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services\TeaBrewer\Http\Controllers;
 
-use App\Http\Apis\RecommendationApi;
-use App\Http\Apis\TeaApi;
-use App\Http\Requests\RecommendationQuery;
-use App\Http\Requests\TeaStore;
+use App\Http\Controllers\Controller;
+use App\Services\TeaBrewer\Http\Apis\TeaApi;
+use App\Services\TeaBrewer\Http\Requests\TeaStore;
+use App\Services\TeaSelector\Http\Apis\RecommendationApi;
+use App\Services\TeaSelector\Http\Requests\RecommendationQuery;
 
 class TeaController extends Controller
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Services\TeaBrewer\Http\Requests;
 
-use App\Models\Tea;
+use App\Services\TeaBrewer\Models\Tea;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TeaStore extends FormRequest

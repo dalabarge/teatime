@@ -45,10 +45,10 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapApiRoutes();
+        $this->mapApiServiceRoutes();
 
         $this->mapWebRoutes();
-
-        //
+        $this->mapWebServiceRoutes();
     }
 
     /**
@@ -78,5 +78,30 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->apiNamespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Map over the "web" routes defined by the services.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebServiceRoutes()
+    {
+        app('App\Services\TeaBrewer\Http\Routes\Web')->map();
+    }
+
+    /**
+     * Map over the "api" routes defined by the services.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiServiceRoutes()
+    {
+        app('App\Services\TeaBrewer\Http\Routes\Api')->map();
+        app('App\Services\TeaSelector\Http\Routes\Api')->map();
     }
 }

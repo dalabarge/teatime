@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Services\TeaBrewer;
 
 use Carbon\Carbon;
 
-class BrewTimer
+class Timer
 {
     protected $temperature;
     protected $time;

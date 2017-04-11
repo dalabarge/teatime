@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Services\TeaBrewer\Models;
 
-use App\Models\Observers\TeaObserver;
+use App\Services\TeaBrewer\Models\TeaObserver;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
