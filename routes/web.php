@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TeaController@index')
+    ->name('tea.index');
+
+Route::get('create', 'TeaController@create')
+    ->name('tea.create');
+
+Route::post('/', 'TeaController@store')
+    ->name('tea.store');
+
+Route::get('{tea}', 'TeaController@show')
+    ->name('tea.show');

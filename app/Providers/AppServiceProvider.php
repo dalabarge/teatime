@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\TeaObserver;
+use App\Tea;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Tea::observe(TeaObserver::class);
     }
 
     /**
