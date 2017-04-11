@@ -4,33 +4,37 @@ namespace App\Http\Apis;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeaStore;
-use App\Models\Tea;
+use App\Repositories\Teas;
+use Illuminate\Http\Request;
 
 class TeaApi extends Controller
 {
-    protected $model;
+    protected $repository;
 
-    public function __construct(Tea $model)
+    public function __construct(Teas $repository)
     {
-        $this->model = $model;
+        $this->repository = $repository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->model->all();
+        return $this->repository->paginate(
+            $request->intersect([
+                'keyword',
+                'order',
+                'sort',
+                'type',
+                'max',
+            ]));
     }
 
     public function store(TeaStore $request)
     {
-        $tea = new $this->model;
-        $tea->fill($request->toArray());
-        $tea->save();
-
-        return $tea;
+        return $this->repository->create($request->all());
     }
     
     public function show($id)
     {
-        return $this->model->findOrFail($id);
+        return $this->repository->read($id);
     }
 }

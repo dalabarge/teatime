@@ -100,4 +100,19 @@ class Tea extends Model
     {
         return ucfirst($this->type);
     }
+
+    public function scopeKeyword($query, $keyword)
+    {
+        $keyword = preg_replace('/[\s]+/', '%', $keyword);
+        $query->where(function($query) use ($keyword) {
+            foreach(['name'] as $attribute) {
+                $query->orWhere($attribute, 'LIKE', '%'.$keyword.'%');
+            }
+        });
+    }
+
+    public function scopeOfType($query, $type)
+    {
+        return $query->whereType($type);
+    }
 }

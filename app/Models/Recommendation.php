@@ -11,12 +11,6 @@ class Recommendation extends Model
         'display_type',
     ];
 
-    /**
-     * Create a new fluent container instance.
-     *
-     * @param  array|object    $attributes
-     * @return void
-     */
     public function __construct($attributes = [])
     {
     	if( $attributes instanceof self ) {
